@@ -54,6 +54,7 @@ void NCursesDisplay::DisplaySystem(System& system, WINDOW* window) {
 
 void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
                                       WINDOW* window, int n) {
+
   int row{0};
   int const pid_column{2};
   int const user_column{9};
@@ -99,7 +100,9 @@ void NCursesDisplay::Display(System& system, int n) {
     box(system_window, 0, 0);
     box(process_window, 0, 0);
     DisplaySystem(system, system_window);
-    DisplayProcesses(system.Processes(), process_window, n);
+    std::vector<Process> processes = system.Processes();
+    DisplayProcesses(processes, process_window, (processes.size() > 10) ? 10: processes.size());
+    //DisplayProcesses(system.Processes(), process_window, n);
     wrefresh(system_window);
     wrefresh(process_window);
     refresh();
