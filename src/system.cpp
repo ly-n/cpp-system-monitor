@@ -6,8 +6,6 @@
 
 #include <algorithm>
 
-#include <iostream> // REMOVE LATER
-
 #include "process.h"
 #include "processor.h"
 #include "system.h"

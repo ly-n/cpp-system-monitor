@@ -10,11 +10,10 @@
 #include <chrono> // for cpu calc
 #include <thread> // for cpu calc
 
-#include <iostream> // REMOVE LATER
 
 // TODO: Return the aggregate CPU utilization
 float Processor::Utilization() {
-  float PrevIdle, Idle, PrevNonIdle, NonIdle, PrevTotal, Total, totald, idled, CPU_percentage;
+  float PrevIdle, Idle, PrevTotal, Total, totald, idled, CPU_percentage;
 
   PrevTotal = LinuxParser::Jiffies();
   PrevIdle = LinuxParser::IdleJiffies();

@@ -25,7 +25,7 @@ float Process::CpuUtilization() {
   // seconds = system_uptime - (starttime / Hertz) a.k.a. UpTime
   // cpu_usage = 100 * ((total_time / Hertz) / seconds)
 
-  float total_active, prev_total_active, system_uptime_seconds, totald, cpu_usage;
+  float total_active, system_uptime_seconds, cpu_usage;
 
   total_active = LinuxParser::ActiveJiffies(pid);
 
