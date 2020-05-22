@@ -19,7 +19,8 @@ set_property(TARGET monitor PROPERTY CXX_STANDARD 17)
 
 # include gcc9 library
 if( NOT GCC9 )
-  target_link_libraries(monitor ${CURSES_LIBRARIES})
+  #target_link_libraries(monitor ${CURSES_LIBRARIES})
+  message(FATAL_ERROR "Insufficient gcc version. Version 9 required.")
 else()
   target_link_libraries(monitor ${CURSES_LIBRARIES} ${GCC9})
 endif()
@@ -29,6 +30,6 @@ endif()
 target_compile_options(monitor PRIVATE -Wall -Wextra)
 
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9)
-  message(FATAL_ERROR "Insufficient gcc version. Version 9 required.")
-endif()
+#if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9)
+#  message(FATAL_ERROR "Insufficient gcc version. Version 9 required.")
+#endif()

@@ -6,8 +6,8 @@
 #include <fstream>
 #include <sstream>
 #include <locale> // for isdigit
-#include <filesystem>
-//#include <experimental/filesystem> // may be required for some systems
+//#include <filesystem>
+#include <experimental/filesystem> // may be required for some systems
 
 
 #include "linux_parser.h"
@@ -58,8 +58,8 @@ string LinuxParser::Kernel() {
 vector<int> LinuxParser::Pids() { 
   vector<int> pids;
 
-  //namespace fsnp = std::experimental::filesystem;
-  namespace fsnp = std::filesystem;
+  namespace fsnp = std::experimental::filesystem;
+  //namespace fsnp = std::filesystem;
   fsnp::path path_(kProcDirectory.c_str());
   std::string filename;
   
@@ -236,17 +236,19 @@ int LinuxParser::TotalProcesses() {
 
   if (filestream.is_open()) {
     std::string line, label, value;
-    int totalProcesses;
+    int totalProcesses = 0;
 
     while (std::getline(filestream, line)) {
       std::getline(filestream, line);
       std::istringstream linestream(line);
+
       linestream >> label >> value;
-      if (label == "processes") {
+      if ( label.find("processes") ) {
         totalProcesses = std::stoi(value);
+        return totalProcesses;
       }
     }
-    return totalProcesses;
+    
   }
   return 0;
 }
