@@ -1,5 +1,4 @@
 # CppND-System-Monitor
-
 System Monitor Project in the Object Oriented Programming Course of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). 
 
 Starter code here: https://github.com/udacity/CppND-System-Monitor-Project-Updated.git
@@ -23,7 +22,6 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 * `clean` deletes the `build/` directory, including all of the build artifacts
 
 ## Instructions
-
 1. Install requirements
 
 2. Clean up any previous builds: `make clean`
@@ -31,4 +29,4 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 3. Build the project: `make build`
 
 4. Run the resulting executable: `./build/monitor`
-![Starting System Monitor](images/starting_monitor.png)
+![My Working System Monitor](images/my_monitor.png)
